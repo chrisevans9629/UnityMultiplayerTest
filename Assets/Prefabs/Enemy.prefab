@@ -144,6 +144,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 2
+  ItemDropPrefab: {fileID: 5047490367310935377, guid: f40b740ab065d1c42acfe427ac8c6fd6, type: 3}
 --- !u!61 &9089851225625598616
 BoxCollider2D:
   m_ObjectHideFlags: 0

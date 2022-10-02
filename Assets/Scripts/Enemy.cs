@@ -43,6 +43,7 @@ public class Enemy : NetworkBehaviour
     public override void OnDestroy()
     {
         var item = Instantiate(ItemDropPrefab);
+        item.transform.position = transform.position;
         item.GetComponent<NetworkObject>().Spawn(true);
         base.OnDestroy();
     }

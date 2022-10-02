@@ -13,6 +13,7 @@ public class PlayerController : NetworkBehaviour
     {
 
     }
+
     public override void OnNetworkSpawn()
     {
         Camera = Camera.main;

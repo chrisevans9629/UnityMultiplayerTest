@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 5594076607656091236}
   - component: {fileID: -8683714930582786824}
   - component: {fileID: 8036345286896143492}
+  - component: {fileID: 5484654900714069000}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -208,3 +209,15 @@ MonoBehaviour:
   Speed: 2
   BulletSpeed: 4
   Range: 20
+--- !u!114 &5484654900714069000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6031175629083983907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9ef9706d46fd50f429628e2ec62dc1ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
