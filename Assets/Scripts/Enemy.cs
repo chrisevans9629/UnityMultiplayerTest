@@ -9,6 +9,9 @@ public class Enemy : NetworkBehaviour
     [SerializeField]
     private float Speed = 2;
 
+    [SerializeField]
+    private GameObject ItemDropPrefab;
+
     private GameObject Player;
 
     public override void OnNetworkSpawn()
@@ -35,5 +38,12 @@ public class Enemy : NetworkBehaviour
 
         transform.position += direction.normalized * Speed * Time.deltaTime;
 
+    }
+
+    public override void OnDestroy()
+    {
+        var item = Instantiate(ItemDropPrefab);
+        item.GetComponent<NetworkObject>().Spawn(true);
+        base.OnDestroy();
     }
 }
