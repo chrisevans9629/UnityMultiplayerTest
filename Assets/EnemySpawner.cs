@@ -12,6 +12,9 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float DistanceFromPlayer = 7;
 
+    [SerializeField]
+    private float SpawnDelay = 0.5f;
+
     public void StartSpawning()
     {
         Debug.Log("started spawning");
@@ -20,7 +23,7 @@ public class EnemySpawner : MonoBehaviour
 
     IEnumerator SpawnEnemies()
     {
-        yield return new WaitForSeconds(2);
+        yield return new WaitForSeconds(SpawnDelay);
         var players = GameObject.FindGameObjectsWithTag("Player").ToList();
         var angle = Random.Range(0, 360);
 
