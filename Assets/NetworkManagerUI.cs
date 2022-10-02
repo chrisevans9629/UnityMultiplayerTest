@@ -11,8 +11,12 @@ public class NetworkManagerUI : MonoBehaviour
     [SerializeField]
     private Button clientBtn;
     [SerializeField]
+    private Button botBtn;
+    [SerializeField]
     private EnemySpawner spawner;
 
+    [SerializeField]
+    private GameObject BotPrefab;
     void Start()
     {
         hostBtn.onClick.AddListener(() =>
@@ -25,6 +29,12 @@ public class NetworkManagerUI : MonoBehaviour
         clientBtn.onClick.AddListener(() =>
         {
             NetworkManager.Singleton.StartClient();
+        });
+
+        botBtn.onClick.AddListener(() =>
+        {
+            var bot = Instantiate(BotPrefab);
+            bot.GetComponent<NetworkObject>().Spawn(true);
         });
     }
 

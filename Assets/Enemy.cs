@@ -9,7 +9,7 @@ public class Enemy : NetworkBehaviour
     [SerializeField]
     private float Speed = 2;
 
-    private PlayerController Player;
+    private GameObject Player;
 
     public override void OnNetworkSpawn()
     {
@@ -19,10 +19,7 @@ public class Enemy : NetworkBehaviour
 
     IEnumerator FindTarget()
     {
-        Player = GameObject.FindGameObjectsWithTag("Player")
-            .OrderBy(p => Vector3.Distance(p.transform.position, transform.position))
-            .First()
-            .GetComponent<PlayerController>();
+        Player = CommonLogic.FindClosestObject("Player", transform.position);
 
         yield return new WaitForSeconds(4);
         StartCoroutine(FindTarget());
