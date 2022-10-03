@@ -18,6 +18,13 @@ namespace Assets.Scripts
         private int XpNeeded = 100;
         private void OnCollisionEnter2D(Collision2D collision)
         {
+            
+        }
+
+        private void OnTriggerEnter2D(Collider2D collision)
+        {
+            if (!IsServer)
+                return;
             if (collision.transform.tag == "ItemDrop")
             {
                 var value = collision.gameObject.GetComponent<ItemDrop>().Pickup();
