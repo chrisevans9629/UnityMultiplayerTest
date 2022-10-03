@@ -22,17 +22,5 @@ namespace Assets
             transform.position += Direction.normalized * Speed * Time.deltaTime;
         }
 
-        private void OnCollisionEnter2D(Collision2D collision)
-        {
-            if (!IsServer)
-                return;
-            if (collision.transform.tag == "Enemy")
-            {
-                Destroy(collision.gameObject);
-                Destroy(gameObject);
-            }
-        }
-
-
     }
 }

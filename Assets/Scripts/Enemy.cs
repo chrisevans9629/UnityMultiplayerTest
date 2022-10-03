@@ -40,11 +40,17 @@ public class Enemy : NetworkBehaviour
 
     }
 
-    public override void OnDestroy()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        var item = Instantiate(ItemDropPrefab);
-        item.transform.position = transform.position;
-        item.GetComponent<NetworkObject>().Spawn(true);
-        base.OnDestroy();
+        if (!IsServer)
+            return;
+        if (collision.transform.tag == "Bullet")
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+            var item = Instantiate(ItemDropPrefab);
+            item.transform.position = transform.position;
+            item.GetComponent<NetworkObject>().Spawn(true);
+        }
     }
 }
