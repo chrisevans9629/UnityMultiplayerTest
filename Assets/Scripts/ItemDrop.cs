@@ -13,10 +13,12 @@ namespace Assets.Scripts
         [SerializeField]
         private int Value = 1;
 
-        public int Pickup()
+        [SerializeField]
+        private ItemDropType Type;
+        public (ItemDropType, int) Pickup()
         {
             Destroy(gameObject);
-            return Value;
+            return (Type, Value);
         }
     }
 }

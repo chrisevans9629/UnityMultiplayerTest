@@ -12,8 +12,6 @@ public class NetworkManagerUI : MonoBehaviour
     private Button clientBtn;
     [SerializeField]
     private Button botBtn;
-    [SerializeField]
-    private EnemySpawner spawner;
 
     [SerializeField]
     private GameObject BotPrefab;
@@ -23,7 +21,12 @@ public class NetworkManagerUI : MonoBehaviour
         {
             Debug.Log("host started");
             NetworkManager.Singleton.StartHost();
-            spawner.StartSpawning();
+
+            var spawners = GameObject.FindObjectsOfType<EnemySpawner>();
+            foreach (var spawner in spawners)
+            {
+                spawner.StartSpawning();
+            }
         });
 
         clientBtn.onClick.AddListener(() =>
@@ -36,11 +39,5 @@ public class NetworkManagerUI : MonoBehaviour
             var bot = Instantiate(BotPrefab);
             bot.GetComponent<NetworkObject>().Spawn(true);
         });
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3520866455953291363}
   - component: {fileID: 9089851225625598616}
   - component: {fileID: 6606171446467673723}
+  - component: {fileID: 118287535736435299}
   m_Layer: 6
   m_Name: Enemy
   m_TagString: Enemy
@@ -143,7 +144,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ef3e4aba698e964e9c16f4a1c85416c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 2
   ItemDropPrefab: {fileID: 5047490367310935377, guid: f40b740ab065d1c42acfe427ac8c6fd6, type: 3}
 --- !u!61 &9089851225625598616
 BoxCollider2D:
@@ -192,3 +192,16 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &118287535736435299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6392834899918049899}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d601015cf7a0ab34db108e2b6f69e1f8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Speed: 2

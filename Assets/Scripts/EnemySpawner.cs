@@ -7,7 +7,7 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     [SerializeField]
-    private Enemy EnemyPrefab;
+    private GameObject EnemyPrefab;
 
     [SerializeField]
     private float DistanceFromPlayer = 7;
