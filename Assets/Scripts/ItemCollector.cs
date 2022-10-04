@@ -10,18 +10,15 @@ namespace Assets.Scripts
 {
     public class ItemCollector : NetworkBehaviour
     {
-        [SerializeField]
-        private int Level = 1;
-        [SerializeField]
-        private int Xp = 0;
-        [SerializeField]
-        private int XpNeeded = 100;
+        private LevelManager LevelManager;
 
         [SerializeField]
-        private int Health = 100;
-        private void OnCollisionEnter2D(Collision2D collision)
+        private NetworkVariable<int> Health = new NetworkVariable<int>(100);
+
+        public override void OnNetworkSpawn()
         {
-
+            LevelManager = GameObject.FindObjectOfType<LevelManager>();
+            base.OnNetworkSpawn();
         }
 
         private void OnTriggerEnter2D(Collider2D collision)
@@ -32,9 +29,9 @@ namespace Assets.Scripts
             {
                 var (type, value) = collision.gameObject.GetComponent<ItemDrop>().Pickup();
                 if (type == ItemDropType.Xp)
-                    Xp += value;
+                    LevelManager.AddXp(value);
                 if (type == ItemDropType.Health)
-                    Health += value;
+                    Health.Value += value;
             }
         }
     }

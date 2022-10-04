@@ -9,7 +9,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 6031175629083983907, guid: 4db159319b4429948a3c98544fcb9995, type: 3}
       propertyPath: m_Name
-      value: Bot
+      value: Bot Variant
       objectReference: {fileID: 0}
     - target: {fileID: 6031175629083983932, guid: 4db159319b4429948a3c98544fcb9995, type: 3}
       propertyPath: GlobalObjectIdHash
@@ -68,20 +68,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 6031175629083983907, guid: 4db159319b4429948a3c98544fcb9995, type: 3}
   m_PrefabInstance: {fileID: 5920842854483040143}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4138682728831515205
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 114847784088393644}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 121ad6f1be6b3404fbbf6bd058c312c8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  thinkSpeed: 1
 --- !u!114 &1114783577227767146
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -108,3 +94,18 @@ MonoBehaviour:
   ScaleThreshold: 0.01
   InLocalSpace: 0
   Interpolate: 1
+--- !u!114 &4138682728831515205
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 114847784088393644}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 121ad6f1be6b3404fbbf6bd058c312c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 3
+  thinkSpeed: 0.5
+  minPlayerDistance: 5

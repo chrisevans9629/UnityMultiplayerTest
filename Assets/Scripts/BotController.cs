@@ -9,6 +9,9 @@ public class BotController : NetworkBehaviour
 
     [SerializeField]
     private float thinkSpeed = 1;
+
+    [SerializeField]
+    private float minPlayerDistance = 2;
     private GameObject ClosestEnemy;
     private GameObject ClosestPlayer;
 
@@ -42,6 +45,10 @@ public class BotController : NetworkBehaviour
         else if (ClosestPlayer != null)
         {
             transform.position = Vector3.MoveTowards(transform.position, ClosestPlayer.transform.position, moveSpeed * Time.deltaTime);
+            var distance = transform.position - ClosestPlayer.transform.position;
+            if(distance.magnitude < minPlayerDistance){
+                ClosestPlayer = null;
+            }
         }
     }
 }
