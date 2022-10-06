@@ -27,7 +27,7 @@ public class EnemySpawner : MonoBehaviour
         var players = GameObject.FindGameObjectsWithTag("Player").ToList();
         var angle = Random.Range(0, 360);
 
-        var spawnedObj = Instantiate(EnemyPrefab);
+        var spawnedObj = Instantiate(EnemyPrefab, transform);
         Vector3 positionDiff = GetEnemyPositionOutOfSight(players, angle);
         spawnedObj.transform.position = positionDiff;
 

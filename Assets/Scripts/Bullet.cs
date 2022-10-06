@@ -8,6 +8,16 @@ namespace Assets
         public float Speed = 4;
         public Vector3 Direction;
 
+        public int Health = 1;
+
+        public void Damage(){
+            Health--;
+            if(Health <= 0)
+            {
+                Destroy(gameObject);
+            }
+        }
+
         public override void OnNetworkSpawn()
         {
             if (IsServer)
@@ -15,12 +25,7 @@ namespace Assets
             base.OnNetworkSpawn();
         }
 
-        private void Update()
-        {
-            if (!IsServer)
-                return;
-            transform.position += Direction.normalized * Speed * Time.deltaTime;
-        }
+        
 
     }
 }

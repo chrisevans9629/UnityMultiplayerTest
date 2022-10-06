@@ -9,7 +9,7 @@ using UnityEngine;
 
 namespace Assets
 {
-    public class Weapon : NetworkBehaviour
+    public class Weapon : MonoBehaviour
     {
         [SerializeField]
         private Bullet BulletPrefab;
@@ -25,7 +25,7 @@ namespace Assets
 
         private void Start()
         {
-            if (IsServer)
+            if (NetworkManager.Singleton.IsServer)
                 StartCoroutine(Fire());
         }
 

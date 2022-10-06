@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Assets;
 using Unity.Netcode;
 using UnityEngine;
 
@@ -14,7 +15,8 @@ public class Enemy : NetworkBehaviour
             return;
         if (collision.transform.tag == "Bullet")
         {
-            Destroy(collision.gameObject);
+            //Destroy(collision.gameObject);
+            collision.gameObject.GetComponent<Bullet>().Damage();
             Destroy(gameObject);
             var item = Instantiate(ItemDropPrefab);
             item.transform.position = transform.position;
