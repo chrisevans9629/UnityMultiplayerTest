@@ -4,7 +4,7 @@ using System.Linq;
 using Unity.Netcode;
 using UnityEngine;
 
-public class EnemySpawner : MonoBehaviour
+public class EnemySpawner : NetworkBehaviour
 {
     [SerializeField]
     private GameObject EnemyPrefab;
@@ -15,6 +15,13 @@ public class EnemySpawner : MonoBehaviour
     [SerializeField]
     private float SpawnDelay = 0.5f;
 
+    public override void OnNetworkSpawn()
+    {
+        if (!IsServer)
+            return;
+        StartSpawning();
+        base.OnNetworkSpawn();
+    }
     public void StartSpawning()
     {
         Debug.Log("started spawning");
