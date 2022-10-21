@@ -8,11 +8,6 @@ public class PlayerController : NetworkBehaviour
     private float movespeed = 3f;
 
     private Camera Camera;
-    // Start is called before the first frame update
-    void Start()
-    {
-        DontDestroyOnLoad(gameObject);
-    }
 
     public override void OnNetworkSpawn()
     {
